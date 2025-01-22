@@ -12,8 +12,10 @@ import {
 
 export const userTable = pgTable('user', {
   id: uuid('id').defaultRandom().primaryKey(),
-  username: text('name').unique(),
+  username: text('username').unique(), // Adjusted from 'name' to 'username'
   email: text('email').unique(),
+  name: text('name'), // Added field for the user's full name
+  password: text('password'), // Added field for encrypted password
 });
 
 export const scheduleTable = pgTable('schedule', {
